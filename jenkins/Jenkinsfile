@@ -3,7 +3,6 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                dir('/var/www')
                 sh 'git clone https://github.com/z-prashansa-tiwari/simple-python-pyinstaller-app'
                 echo 'Clone successfull'
             }
