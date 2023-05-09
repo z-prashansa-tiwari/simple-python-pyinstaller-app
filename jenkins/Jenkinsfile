@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clean Up') {
             steps {
-                deleteDir('simple-python-pyinstaller-app')
+                sh 'ssh ubuntu@35.91.231.147 "rm -r simple-python-pyinstaller-app" '
             }
         }
         stage('Clone Repo') {
