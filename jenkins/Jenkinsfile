@@ -3,8 +3,7 @@ pipeline {
     stages {
         stage('Clean Up') {
             steps {
-                
-                deleteDir()
+                deleteDir('simple-python-pyinstaller-app')
             }
         }
         stage('Clone Repo') {
