@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'ssh ubuntu@35.91.231.147 python3 -m py_compile simple-python-pyinstaller-app/sources/add2vals.py sources/calc.py'        
+                sh 'ssh ubuntu@35.91.231.147 "python3 -m py_compile simple-python-pyinstaller-app/sources/add2vals.py sources/calc.py"'        
             }
         }
         stage('Test') {
