@@ -1,11 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('switch to ubuntu@35.91.231.147') {
-            steps {
-                sh 'ssh ubunutu@35.91.231.147'
-            }
-        }
         stage('Clone Repo') {
             steps {
                 sh 'git clone https://github.com/z-prashansa-tiwari/simple-python-pyinstaller-app /var/www'
