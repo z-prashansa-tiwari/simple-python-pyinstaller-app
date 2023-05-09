@@ -21,11 +21,6 @@ pipeline {
             steps {
                     sh 'ssh ubuntu@35.91.231.147 py.test --verbose --junit-xml test-reports/results.xml simple-python-pyinstaller-app/sources/test_calc.py'
             }
-            post {
-                always {
-                    junit 'ssh ubuntu@35.91.231.147 test-reports/results.xml'
-                }
-            }
         }
         stage('Deliver') {
             steps {
