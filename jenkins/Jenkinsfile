@@ -19,22 +19,17 @@ pipeline {
         }
         stage('Test') {
             steps {
-                dir('simple-python-pyinstaller-app') {
-                    sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_calc.py'
-            
-                }
+                    sh 'ssh ubuntu@35.91.231.147 py.test --verbose --junit-xml test-reports/results.xml simple-python-pyinstaller-app/sources/test_calc.py'
             }
             post {
                 always {
-                    junit 'test-reports/results.xml'
+                    junit 'ssh ubuntu@35.91.231.147 test-reports/results.xml'
                 }
             }
         }
         stage('Deliver') {
             steps {
-                dir('simple-python-pyinstaller-app') {
-                    sh 'pyinstaller --onefile sources/add2vals.py'
-                }
+                    sh 'ssh ubuntu@35.91.231.147 pyinstaller --onefile simple-python-pyinstaller-app/sources/add2vals.py'
             }
             post {
                 success {
