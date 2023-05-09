@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Clone Repo') {
             steps {
-                sh 'git clone https://github.com/z-prashansa-tiwari/simple-python-pyinstaller-app'
+                sh 'git clone https://github.com/z-prashansa-tiwari/simple-python-pyinstaller-app /var/www'
                 echo 'Clone successfull'
             }
         }
