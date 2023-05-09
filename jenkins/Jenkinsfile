@@ -4,6 +4,7 @@ pipeline {
         stage('Clean Up') {
             steps {
                 sh 'ssh ubuntu@35.91.231.147 "rm -r simple-python-pyinstaller-app" '
+                echo 'Clean Up successful'
             }
         }
         stage('Clone Repo') {
@@ -15,16 +16,19 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'ssh ubuntu@35.91.231.147 "python3 -m py_compile simple-python-pyinstaller-app/sources/add2vals.py simple-python-pyinstaller-app/sources/calc.py"'        
+                echo 'Build successfull'
             }
         }
         stage('Test') {
             steps {
                     sh 'ssh ubuntu@35.91.231.147 py.test --verbose --junit-xml test-reports/results.xml simple-python-pyinstaller-app/sources/test_calc.py'
+                    echo 'Test successfull'
             }
         }
         stage('Deliver') {
             steps {
                     sh 'ssh ubuntu@35.91.231.147 pyinstaller --onefile simple-python-pyinstaller-app/sources/add2vals.py'
+                    echo 'Delivery successfull'
             }
         }
     }
