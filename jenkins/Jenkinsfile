@@ -9,8 +9,8 @@ pipeline {
         }
         stage('Clone Repo') {
             steps {
-                sh 'ssh ubuntu@35.91.231.147 "git clone https://github.com/z-prashansa-tiwari/simple-python-pyinstaller-app && sudo cp -r simple-python-pyinstaller-app /var/www"'
-                echo 'Clone successfull'
+                sh 'ssh ubuntu@35.91.231.147 "git clone https://github.com/z-prashansa-tiwari/simple-python-pyinstaller-app && sudo rm -r simple-python-pyinstaller-app/jenkins"'
+                echo 'Clone successfull and jenkins file removed'
             }
         }
         stage('Build') {
